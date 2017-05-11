@@ -1,0 +1,38 @@
+<% include ../views/partials/head %>
+<% include ../views/partials/header %>
+<!-- Loading game state files -->
+<script  type='text/javascript' src = "assets/games/verticalMario/phaser.min.js"></script>
+<script  type='text/javascript' src = "assets/games/verticalMario/bootState.js"></script>
+<script  type='text/javascript' src = "assets/games/verticalMario/preloadState.js"></script>
+<script  type='text/javascript' src = "assets/games/verticalMario/menuState.js"></script>
+<script  type='text/javascript' src = "assets/games/verticalMario/gameState.js"></script>
+<!-- Loading game prefab files -->
+<script  type='text/javascript' src = "assets/games/verticalMario/perfabs/Coin.js"></script>
+<script  type='text/javascript' src = "assets/games/verticalMario/perfabs/Platform.js"></script>
+<script  type='text/javascript' src = "assets/games/verticalMario/perfabs/Mario.js"></script>
+<script  type='text/javascript' src = "assets/games/verticalMario/perfabs/Spiny.js"></script>
+<script  type='text/javascript' src = "assets/games/verticalMario/perfabs/Goomba.js"></script>
+
+  <div class = "container">
+    <h2>Vertical Mario</h2>
+    <div id = "verticalMario"></div>
+  </div>
+
+  <script>
+  var VerticalMario = VerticalMario || {};
+	var pause = false, startGame = false, movingRight = false, movingLeft = false;
+	var playerJump = false, alreadDead = false;
+
+   VerticalMario.game = new Phaser.Game(700, 500, Phaser.AUTO,'verticalMario');
+   VerticalMario.game.state.add('BootState', VerticalMario.BootState);
+   VerticalMario.game.state.add('PreloadState', VerticalMario.PreloadState);
+   VerticalMario.game.state.add('MenuState', VerticalMario.MenuState);
+   VerticalMario.game.state.add('GameState', VerticalMario.GameState);
+
+   VerticalMario.game.state.start('BootState');
+
+	//turn of scrolling from keyboard
+	window.addEventListener("keydown", function(e) {
+	{ e.preventDefault(); } }, false);
+</script>
+<% include ../views/partials/footer %>

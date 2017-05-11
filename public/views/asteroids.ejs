@@ -1,0 +1,31 @@
+<% include ../views/partials/head %>
+<% include ../views/partials/header %>
+
+<!-- importing game states -->
+<script type='text/javascript' src = "assets/Games/asteroids/js/phaser.min.js"></script>
+<script type='text/javascript' src = "assets/Games/asteroids/js/bootState.js"></script>
+<script type='text/javascript' src = "assets/Games/asteroids/js/preloadState.js"></script>
+<script type='text/javascript' src = "assets/Games/asteroids/js/menuState.js"></script>
+<script type='text/javascript' src = "assets/Games/asteroids/js/gameState.js"></script>
+
+<!-- importing prefabs -->
+<script type='text/javascript' src = "assets/Games/asteroids/js/prefabs/alien.js"></script>
+<script type='text/javascript' src = "assets/Games/asteroids/js/prefabs/bullet.js"></script>
+<script type='text/javascript' src = "assets/Games/asteroids/js/prefabs/healthUp.js"></script>
+<script type='text/javascript' src = "assets/Games/asteroids/js/prefabs/rock.js"></script>
+
+<div class = "container">
+  <h2>Asteroids</h2>
+  <div id = "asteroidsGame"></div>
+</div>
+<script>
+  var Asteroids = Asteroids || {};
+  Asteroids.game = new Phaser.Game(430, 300, Phaser.AUTO, 'asteroidsGame');
+  Asteroids.game.state.add('BootState', Asteroids.BootState);
+  Asteroids.game.state.add('PreloadState', Asteroids.PreloadState);
+  Asteroids.game.state.add('MenuState', Asteroids.MenuState);
+  Asteroids.game.state.add('GameState', Asteroids.GameState);
+  Asteroids.game.state.start('BootState');
+</script>
+
+<% include ../views/partials/footer %>

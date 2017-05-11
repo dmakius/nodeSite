@@ -1,0 +1,10 @@
+<% include ../views/partials/head %>
+<% include ../views/partials/header %>
+<div class = "container">
+  <br>
+  <h3><%= game_id %></h3>
+  <br>
+  <canvas id = "myCanvas" class='img-responsive' style="display:block; margin:auto;"></canvas>
+  <script type="text/javascript" src = "assets/games/<%= game_id %>.js"></script>
+</div>
+<% include ../views/partials/footer %>
